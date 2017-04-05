@@ -2,7 +2,8 @@
 """
 Created on Wed Apr  5 12:23:59 2017
 
-@author: wonjo
+@author: Wonjoong Jason Cheon
+@Version 1.0 
 """
 %reset
 #%%
