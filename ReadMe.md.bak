@@ -14,7 +14,7 @@ Samsung Advanced Institute for Health Science & Technology(SAIHST), SungKyunKwan
 B.E. Dept. of Information and Communication Engineering , Yonsei University.  
 B.S. Dept. of Radiological Science, Yonsei University.  
 
-Laboratry 
+**Laboratry**
 Samsung Medical Center (Medical Physics, 2014 ~ )  
 National Cancer Center (Computer Vision, 2013)  
 Vatech Vision reasearch Center (CT recon, 2012)  
