@@ -1,7 +1,10 @@
 ## About this code  
 The script "main_dicom2hdr.py" is wirtten for reading dicom files and converting format to *.hdr , *.img  
 
-  
+### Figure    
+<img src = https://github.com/wjcheon/Dicom2HDR_Python/blob/master/visualization_dicom.png />  
+Fig.1 Visualization dicom file of Realskull phantom as transverse, coronal , and sagittal plane   
+
   
 ## Who am I 
 **Wonjoong Cheon**  
