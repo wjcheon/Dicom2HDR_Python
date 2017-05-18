@@ -58,7 +58,18 @@ for filenameDCM in lstFilesDCM:
     # Print progressing status
     if lstFilesDCM.index(filenameDCM) % 100 == 0:
         print ("{}/{} th file was sucessully loaded ".format(lstFilesDCM.index(filenameDCM), len(lstFilesDCM)))
-               
+#%% image rotate (option)
+#test_m = numpy.arange(9).reshape(3,3)
+#test_m_rotated = numpy.rot90(test_m,k=-1)
+rotate_option = True
+if rotate_option:
+    ArrayDicom_rotated = ArrayDicom*0
+    for iter_rot in range(0,len(lstFilesDCM)-1):
+        ArrayDicom_rotated[:,:,iter_rot] = numpy.rot90(ArrayDicom[:,:,iter_rot],k=-1)
+        if iter_rot % 100 == 0:
+            print ("{}/{} th file was sucessully rotated ".format(iter_rot, len(lstFilesDCM)))
+    ArrayDicom = ArrayDicom_rotated
+    print ("Rotation process is done !!")               
 #%%  Drawing 
 Dicom_selected_transverse = ArrayDicom[1:sz_ArrayDicom[0]+1,1:sz_ArrayDicom[1]+1,sz_ArrayDicom[2]/2]
 Dicom_selected_coronal = ArrayDicom[sz_ArrayDicom[0]/2,1:sz_ArrayDicom[1]+1,1:sz_ArrayDicom[2]+1]
