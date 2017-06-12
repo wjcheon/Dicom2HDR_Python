@@ -3,8 +3,8 @@
 Created on Wed Apr  5 12:23:59 2017
 
 @author: Wonjoong Jason Cheon
-@Date: 2017.04.06
-@Version 1.0 
+@Date: 2017.06.12
+@Version 2.0 
 @
 """
 %reset
@@ -27,7 +27,7 @@ for dirName, subdirList, fileList in os.walk(PathDicom):
         if ".dcm" in filename.lower():  # check whether the file's DICOM
             lstFilesDCM.append(os.path.join(dirName,filename))
             num_files += 1
-print("{} of dicom image were loaded".format(num_files))
+print("{} of filename of dicom images were loaded".format(num_files))
             
             
 #%% GET Information 
@@ -57,7 +57,7 @@ for filenameDCM in lstFilesDCM:
     ArrayDicom[:, :, lstFilesDCM.index(filenameDCM)] = ds.pixel_array 
     # Print progressing status
     if lstFilesDCM.index(filenameDCM) % 100 == 0:
-        print ("{}/{} th file was sucessully loaded ".format(lstFilesDCM.index(filenameDCM), len(lstFilesDCM)))
+        print ("{}/{} th dicom image was sucessully loaded ".format(lstFilesDCM.index(filenameDCM), len(lstFilesDCM)))
 #%% image rotate (option)
 #test_m = numpy.arange(9).reshape(3,3)
 #test_m_rotated = numpy.rot90(test_m,k=-1)
@@ -67,7 +67,7 @@ if rotate_option:
     for iter_rot in range(0,len(lstFilesDCM)-1):
         ArrayDicom_rotated[:,:,iter_rot] = numpy.rot90(ArrayDicom[:,:,iter_rot],k=-1)
         if iter_rot % 100 == 0:
-            print ("{}/{} th file was sucessully rotated ".format(iter_rot, len(lstFilesDCM)))
+            print ("{}/{} th dicom image was sucessully rotated ".format(iter_rot, len(lstFilesDCM)))
     ArrayDicom = ArrayDicom_rotated
     print ("Rotation process is done !!")               
 #%%  Drawing 
@@ -85,8 +85,6 @@ def show_slices(slices):
 
 show_slices([Dicom_selected_transverse, Dicom_selected_coronal, Dicom_selected_saggital])
 plt.suptitle("Center slices for Dicom image")  
-
-
 #%%
 # >> pip install nibabel
 # A nibabel image object is the association of three things:
@@ -119,59 +117,9 @@ print(header_dicom)
 #img_dicom_data_type = header_dicom.get_data_dtype();
 #img_dicom_data_szVoxel = header_dicom.get_zooms();    
 nib.nifti1.save(img_dicom, os.getcwd()+'{}'.format(r'\test2.img'))
-
+print("All process is done !!!")
 
 #%%
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
